@@ -5,7 +5,7 @@ require "model/user.php";
 
 
 session_start();
-if (isset($_POST['username']) && isset($_POST['lozinka'])) {
+if (isset($_POST['username']) && isset($_POST['password'])) {
     $uname = $_POST['username'];
     $upass = $_POST['password'];
 

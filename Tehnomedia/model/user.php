@@ -7,21 +7,21 @@ class User
     public $prezime;
     public $datumRodjenja;
     public $username;
-    public $lozinka;
+    public $password;
 
-    public function __construct($id = null, $ime = null, $prezime = null, $datumRodjenja = null, $lozinka = null, $username = null)
+    public function __construct($id = null, $ime = null, $prezime = null, $datumRodjenja = null, $password = null, $username = null)
     {
         $this->id = $id;
         $this->ime = $ime;
         $this->prezime = $prezime;
         $this->datumRodjenja = $datumRodjenja;
         $this->username = $username;
-        $this->lozinka = $lozinka;
+        $this->password = $password;
     }
 
     public static function logInUser($usr, mysqli $conn)
     {
-        $query = "SELECT * FROM zaposleni WHERE korisnicko_ime='$usr->username' and sifra='$usr->lozinka'";
+        $query = "SELECT * FROM zaposleni WHERE korisnicko_ime='$usr->username' and sifra='$usr->password'";
         //konekcija sa bazom
         return $conn->query($query);
     }
