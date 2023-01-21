@@ -111,11 +111,12 @@ if ($_SESSION['username'] != "admin") {
                                 Datum Unosa
                                 <a onclick="sortTableDsc1();" class="sort-link">Dsc</a>
                             </th>
+
                             <?php
                             if ($_SESSION['username'] == "admin") {
                                 ?>
-                                <th scope="col">Uneo[zaposleni_id]</th>
-                            <?php
+                                <th scope="col">Uneo zaposleni</th>
+                                <?php
                             }
                             ?>
                             <th scope="col">Selektuj</th>
@@ -126,11 +127,15 @@ if ($_SESSION['username'] != "admin") {
                         while ($red = $rezultat->fetch_array()):
                             ?>
                             <tr>
-                                <td><?php echo $red["proizvod_id"] ?></td>
+                                <td>
+                                    <?php echo $red["proizvod_id"] ?>
+                                </td>
                                 <td>
                                     <?php echo $red["naziv"] ?>
                                 </td>
-                                <td><?php echo $red["cena"] ?></td>
+                                <td>
+                                    <?php echo $red["cena"] ?>
+                                </td>
                                 <td style="text-align: center;">
                                     <?php echo $red["datumUnosa"] ?>
                                 </td>
@@ -138,9 +143,9 @@ if ($_SESSION['username'] != "admin") {
                                 if ($_SESSION['username'] == "admin") {
                                     ?>
                                     <td>
-                                        <?php echo $red["zadnik_id"] ?>
+                                        <?php echo $red["zaposleni_id"] ?>
                                     </td>
-                                <?php
+                                    <?php
                                 }
                                 ?>
                                 <td>
@@ -326,18 +331,24 @@ if ($_SESSION['username'] != "admin") {
                                         <td>
                                             <?php echo $red_1["zaposleni_id"] ?>
                                         </td>
-                                        <td><?php echo $red_1["ime"] ?></td>
+                                        <td>
+                                            <?php echo $red_1["ime"] ?>
+                                        </td>
                                         <td>
                                             <?php echo $red_1["prezime"] ?>
                                         </td>
-                                        <td><?php echo $red_1["datum_rodjenja"] ?></td>
+                                        <td>
+                                            <?php echo $red_1["datum_rodjenja"] ?>
+                                        </td>
                                         <td>
                                             <?php echo $red_1["korisnicko_ime"] ?>
                                         </td>
-                                        <td><?php echo $red_1["sifra"] ?></td>
+                                        <td>
+                                            <?php echo $red_1["sifra"] ?>
+                                        </td>
                                         <td>
                                             <label class="custom-radio-btn">
-                                                <input type="radio" name="radio-zaposleni" id="radio-zaposleni" value=<?php echo $red_1["Radnik_ID"] ?>>
+                                                <input type="radio" name="radio-zaposleni" id="radio-zaposleni" value=<?php echo $red_1["zaposleni_id"] ?>>
                                                 <span class="checkmark"></span>
                                             </label>
                                         </td>
@@ -396,11 +407,15 @@ if ($_SESSION['username'] != "admin") {
                             while ($red_1 = $rezultat_2->fetch_array()):
                                 ?>
                                 <tr>
-                                    <td><?php echo $red_1["izvestaj_id"] ?></td>
+                                    <td>
+                                        <?php echo $red_1["izvestaj_id"] ?>
+                                    </td>
                                     <td>
                                         <?php echo $red_1["datum_izvestaja"] ?>
                                     </td>
-                                    <td><?php echo $red_1["uneo"] ?></td>
+                                    <td>
+                                        <?php echo $red_1["uneo"] ?>
+                                    </td>
                                     <td>
                                         <label class="custom-radio-btn">
                                             <input type="radio" name="radio-izvestaj" id="radio-izvestaj" value=<?php echo $red_1["izvestaj_id"] ?>>
@@ -443,7 +458,7 @@ if ($_SESSION['username'] != "admin") {
 
             </div>
 
-        <?php
+            <?php
         }
         ?>
 

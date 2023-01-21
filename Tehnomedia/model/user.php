@@ -34,7 +34,7 @@ class User
 
     public static function add(User $korisnik, mysqli $conn)
     {
-        $query = "INSERT INTO zaposleni(zaposleni_id,ime,prezime,datum_rodjenja,sifra,korisnicko_ime) VALUES('$korisnik->id','$korisnik->ime','$korisnik->prezime','$korisnik->datumRodjenja','$korisnik->lozinka','$korisnik->username')";
+        $query = "INSERT INTO zaposleni(zaposleni_id,ime,prezime,datum_rodjenja,sifra,korisnicko_ime) VALUES('$korisnik->id','$korisnik->ime','$korisnik->prezime','$korisnik->datumRodjenja','$korisnik->password','$korisnik->username')";
         return $conn->query($query);
     }
 
@@ -64,7 +64,7 @@ class User
 
     public static function update(User $korisnik, mysqli $conn)
     {
-        $query = "UPDATE zaposleni SET `zaposleni_id` = '$korisnik->id', `ime` = '$korisnik->ime', `prezime` = '$korisnik->prezime', `datum_rodjenja` = '$korisnik->datumRodjenja', `sifra` = '$korisnik->lozinka', `korisnicko_ime` = '$korisnik->username' WHERE `zaposleni`.`radnik_id` = '$korisnik->id'";
+        $query = "UPDATE zaposleni SET `zaposleni_id` = '$korisnik->id', `ime` = '$korisnik->ime', `prezime` = '$korisnik->prezime', `datum_rodjenja` = '$korisnik->datumRodjenja', `sifra` = '$korisnik->password', `korisnicko_ime` = '$korisnik->username' WHERE `zaposleni`.`radnik_id` = '$korisnik->id'";
         return $conn->query($query);
     }
 }
