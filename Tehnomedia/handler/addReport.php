@@ -15,20 +15,6 @@ if (isset($_POST['txt-izvestaj'])) {
         return;
     }
 
-    // $rezultat = Report::getAll($conn);
-
-    // while($red = $rezultat->fetch_array()):
-
-    //     if($red["Proizvod_ID"] == $_POST['id']){
-    //         echo 'Proizvod sa unetim ID-em vec postoji!';
-    //         return;
-    //     }
-    //     if(strtoupper($red["Naziv"]) == strtoupper($_POST['naziv'])){
-    //         echo 'Proizvod sa unetim nazivom vec postoji!';
-    //         return;
-    //     }
-
-    // endwhile;
 
     $status = Report::add($report, $conn);
     if ($status) {

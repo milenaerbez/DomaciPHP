@@ -24,7 +24,8 @@ class Report
 
     public static function add(Report $report, mysqli $conn)
     {
-        $query = "INSERT INTO izvestaj(izvestaj_id,datum_izvestaja,izvestaj,uneo) VALUES('NULL','$report->datum_izvestaja','$report->izvestaj','$report->uneo')";
+        $query = "INSERT INTO izvestaj(izvestaj_id,datum_izvestaja,izvestaj,uneo) 
+        VALUES('NULL','$report->datum_izvestaja','$report->izvestaj','$report->uneo')";
         return $conn->query($query);
     }
 

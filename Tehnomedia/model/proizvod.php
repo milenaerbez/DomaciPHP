@@ -28,7 +28,9 @@ class Proizvod
 
     public static function add(Proizvod $proizvod, mysqli $conn)
     {
-        $query = "INSERT INTO proizvod(proizvod_id, naziv, cena, datumUnosa, zaposleni_id) VALUES('$proizvod->proizvod_id','$proizvod->naziv','$proizvod->cena','$proizvod->datumUnosa','$proizvod->zaposleni_id')";
+        $query = "INSERT INTO proizvod(proizvod_id, naziv, cena, datumUnosa, zaposleni_id) 
+        VALUES('$proizvod->proizvod_id','$proizvod->naziv',
+        '$proizvod->cena','$proizvod->datumUnosa','$proizvod->zaposleni_id')";
         return $conn->query($query);
     }
 
@@ -66,7 +68,9 @@ class Proizvod
 
     public static function update(Proizvod $proizvod, mysqli $conn)
     {
-        $query = "UPDATE proizvod SET `proizvod_id` = '$proizvod->proizvod_id', `naziv` = '$proizvod->naziv', `cena` = '$proizvod->cena', `datumUnosa` = '$proizvod->datumUnosa', `zaposleni_id` = '$proizvod->zaposleni_id' WHERE `proizvodi`.`proizvod_id` = '$proizvod->proizvod_id'";
+        $query = "UPDATE proizvod SET `proizvod_id` = '$proizvod->proizvod_id', `naziv` = '$proizvod->naziv', `cena` = '$proizvod->cena', `datumUnosa` = '$proizvod->datumUnosa', 
+        `zaposleni_id` = '$proizvod->zaposleni_id' 
+        WHERE `proizvodi`.`proizvod_id` = '$proizvod->proizvod_id'";
         return $conn->query($query);
     }
 }
