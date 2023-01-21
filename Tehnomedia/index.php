@@ -58,7 +58,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 
         <div class="container">
 
-            <div class="row" style="margin-top: 30vh;">
+            <div class="row" style="margin-top: 40vh;margin-right: 50vh;">
 
                 <div class="col-md-6" id="logInDiv">
                     <h3 style="margin-bottom: 30px; margin-top: 15px;">Login</h3>
