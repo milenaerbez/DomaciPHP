@@ -112,6 +112,7 @@ if ($_SESSION['username'] != "admin") {
                                 <a onclick="sortTableDsc1();" class="sort-link">Dsc</a>
                             </th>
 
+
                             <?php
                             if ($_SESSION['username'] == "admin") {
                                 ?>
@@ -139,6 +140,7 @@ if ($_SESSION['username'] != "admin") {
                                 <td style="text-align: center;">
                                     <?php echo $red["datumUnosa"] ?>
                                 </td>
+
                                 <?php
                                 if ($_SESSION['username'] == "admin") {
                                     ?>
@@ -259,6 +261,7 @@ if ($_SESSION['username'] != "admin") {
                                             <input type="number" step=".01" style="border: 1px solid black" id="cena"
                                                 name="cena" class="form-control" required />
                                         </div>
+
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="">Datum Unosa</label>

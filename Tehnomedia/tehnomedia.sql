@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 19, 2023 at 06:48 PM
+-- Generation Time: Jan 21, 2023 at 10:55 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -60,6 +60,7 @@ CREATE TABLE `izvestaj` (
 --
 
 INSERT INTO `izvestaj` (`izvestaj_id`, `datum_izvestaja`, `izvestaj`, `uneo`) VALUES
+(0, '2023-01-21', 'Ovaj izvestaj pise Anci', 'anci'),
 (1, '2023-01-01', 'Ovo je prvi izvestaj u ovoj godini.', 'Pera'),
 (2, '2023-01-02', 'Ovo je drugi izvestaj ove godine.', 'Pera');
 
@@ -74,18 +75,16 @@ CREATE TABLE `proizvod` (
   `naziv` varchar(100) NOT NULL,
   `cena` decimal(11,0) NOT NULL,
   `datumUnosa` date NOT NULL,
-  `zaposleni_id` int(11) NOT NULL,
-  `brend_id` int(11) NOT NULL
+  `zaposleni_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `proizvod`
 --
 
-INSERT INTO `proizvod` (`proizvod_id`, `naziv`, `cena`, `datumUnosa`, `zaposleni_id`, `brend_id`) VALUES
-(1, 'iphone 11', '70000', '2020-07-05', 1, 2),
-(2, 'Zenbook 14 laptop', '50000', '2022-01-11', 1, 1),
-(3, 'Samsung Galaxy S20 Mini telefon', '54000', '2020-05-12', 2, 4);
+INSERT INTO `proizvod` (`proizvod_id`, `naziv`, `cena`, `datumUnosa`, `zaposleni_id`) VALUES
+(2, 'Zenbook 14 laptop', '50000', '2022-01-11', 1),
+(3, 'Samsung Galaxy S20 Mini telefon', '54000', '2020-05-12', 2);
 
 -- --------------------------------------------------------
 
@@ -108,7 +107,9 @@ CREATE TABLE `zaposleni` (
 
 INSERT INTO `zaposleni` (`zaposleni_id`, `ime`, `prezime`, `datum_rodjenja`, `sifra`, `korisnicko_ime`) VALUES
 (1, 'Milena', 'Erbez', '2001-12-02', 'admin123', 'admin'),
-(2, 'Pera', 'Peric', '2000-12-12', 'pera123', 'pera');
+(2, 'Pera', 'Peric', '2000-12-12', 'pera123', 'pera'),
+(3, 'Ana', 'Markovic', '1999-01-16', 'anci123', 'anci'),
+(4, 'Ana', 'Petrovic', '1999-05-20', 'ana123', 'ana123');
 
 --
 -- Indexes for dumped tables
@@ -131,8 +132,7 @@ ALTER TABLE `izvestaj`
 --
 ALTER TABLE `proizvod`
   ADD PRIMARY KEY (`proizvod_id`),
-  ADD KEY `radnik` (`zaposleni_id`),
-  ADD KEY `brend` (`brend_id`);
+  ADD KEY `radnik` (`zaposleni_id`);
 
 --
 -- Indexes for table `zaposleni`
@@ -148,7 +148,6 @@ ALTER TABLE `zaposleni`
 -- Constraints for table `proizvod`
 --
 ALTER TABLE `proizvod`
-  ADD CONSTRAINT `brend` FOREIGN KEY (`brend_id`) REFERENCES `brend` (`brend_id`),
   ADD CONSTRAINT `radnik` FOREIGN KEY (`zaposleni_id`) REFERENCES `zaposleni` (`zaposleni_id`);
 COMMIT;
 
