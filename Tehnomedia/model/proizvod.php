@@ -7,7 +7,7 @@ class Proizvod
     public $cena;
     public $datumUnosa;
     public $zaposleni_id;
-    public $brend_id;
+
 
     public function __construct($proizvod_id = null, $naziv = null, $cena = null, $datumUnosa = null, $zaposleni_id = null)
     {
