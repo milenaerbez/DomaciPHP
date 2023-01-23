@@ -64,7 +64,7 @@ class User
 
     public static function update(User $korisnik, mysqli $conn)
     {
-        $query = "UPDATE zaposleni SET `zaposleni_id` = '$korisnik->id', `ime` = '$korisnik->ime', `prezime` = '$korisnik->prezime', `datum_rodjenja` = '$korisnik->datumRodjenja', `sifra` = '$korisnik->password', `korisnicko_ime` = '$korisnik->username' WHERE `zaposleni`.`radnik_id` = '$korisnik->id'";
+        $query = "UPDATE zaposleni SET `zaposleni_id` = '$korisnik->id', `ime` = '$korisnik->ime', `prezime` = '$korisnik->prezime', `datum_rodjenja` = '$korisnik->datumRodjenja', `sifra` = '$korisnik->password', `korisnicko_ime` = '$korisnik->username' WHERE `zaposleni`.`zaposleni_id` = '$korisnik->id'";
         return $conn->query($query);
     }
 }

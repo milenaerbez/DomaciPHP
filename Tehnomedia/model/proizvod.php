@@ -70,7 +70,7 @@ class Proizvod
     {
         $query = "UPDATE proizvod SET `proizvod_id` = '$proizvod->proizvod_id', `naziv` = '$proizvod->naziv', `cena` = '$proizvod->cena', `datumUnosa` = '$proizvod->datumUnosa', 
         `zaposleni_id` = '$proizvod->zaposleni_id' 
-        WHERE `proizvodi`.`proizvod_id` = '$proizvod->proizvod_id'";
+        WHERE `proizvod`.`proizvod_id` = '$proizvod->proizvod_id'";
         return $conn->query($query);
     }
 }
